@@ -50,19 +50,3 @@ class BaseRequest:
 
 BASE_URL_PETSTORE = 'https://petstore.swagger.io/v2'
 base_request = BaseRequest(BASE_URL_PETSTORE)
-
-pet_info = base_request.get('pet', 1)
-pprint.pprint(pet_info)
-pass
-
-data = {'name': 'Barsic'}
-pet_id = base_request.post('pet', 1, data)
-pet_info = base_request.get('pet', pet_id)
-assert data['name'] == pet_info['name']
-pass
-
-request_id = base_request.delete('pet', 1)
-pet_info = base_request.get('pet', request_id, expected_error=True)
-pprint.pprint(pet_info)
-
-
